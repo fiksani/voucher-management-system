@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1a4b848676d31edb74d57a8851cd541a",
+    "content-hash": "936e41a403ba5d13f8acc8af40b1eecf",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -270,6 +270,67 @@
                 "validator"
             ],
             "time": "2018-12-04T22:38:24+00:00"
+        },
+        {
+            "name": "ellipsesynergie/api-response",
+            "version": "0.16.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ellipsesynergie/api-response.git",
+                "reference": "4e0a4e1fc5ed7b0e650a1a52a73d18f4b713c571"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ellipsesynergie/api-response/zipball/4e0a4e1fc5ed7b0e650a1a52a73d18f4b713c571",
+                "reference": "4e0a4e1fc5ed7b0e650a1a52a73d18f4b713c571",
+                "shasum": ""
+            },
+            "require": {
+                "league/fractal": "~0.17",
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "illuminate/contracts": "~5.0",
+                "illuminate/http": "~5.0",
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "~5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.17-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "EllipseSynergie\\ApiResponse\\": "src",
+                    "EllipseSynergie\\ApiResponse\\Tests\\": "tests"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maxime Beaudoin",
+                    "email": "maxime.beaudoin@ellipse-synergie.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Phil Sturgeon",
+                    "email": "email@philsturgeon.co.uk",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Simple package to handle response properly in your API",
+            "homepage": "https://github.com/ellipsesynergie/api-response",
+            "keywords": [
+                "api",
+                "fractal",
+                "json"
+            ],
+            "time": "2019-07-25T18:24:46+00:00"
         },
         {
             "name": "erusev/parsedown",
@@ -594,6 +655,7 @@
                     "email": "jakub.onderka@gmail.com"
                 }
             ],
+            "abandoned": "php-parallel-lint/php-console-color",
             "time": "2018-09-29T17:23:10+00:00"
         },
         {
@@ -640,6 +702,7 @@
                 }
             ],
             "description": "Highlight PHP code in terminal",
+            "abandoned": "php-parallel-lint/php-console-highlighter",
             "time": "2018-09-29T18:48:56+00:00"
         },
         {
@@ -935,6 +998,70 @@
                 "storage"
             ],
             "time": "2019-03-30T13:22:34+00:00"
+        },
+        {
+            "name": "league/fractal",
+            "version": "0.19.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/fractal.git",
+                "reference": "06dc15f6ba38f2dde2f919d3095d13b571190a7c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/fractal/zipball/06dc15f6ba38f2dde2f919d3095d13b571190a7c",
+                "reference": "06dc15f6ba38f2dde2f919d3095d13b571190a7c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "doctrine/orm": "^2.5",
+                "illuminate/contracts": "~5.0",
+                "mockery/mockery": "~0.9",
+                "pagerfanta/pagerfanta": "~1.0.0",
+                "phpunit/phpunit": "^4.8.35 || ^7.5",
+                "squizlabs/php_codesniffer": "~1.5|~2.0|~3.4",
+                "zendframework/zend-paginator": "~2.3"
+            },
+            "suggest": {
+                "illuminate/pagination": "The Illuminate Pagination component.",
+                "pagerfanta/pagerfanta": "Pagerfanta Paginator",
+                "zendframework/zend-paginator": "Zend Framework Paginator"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.13-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Fractal\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Phil Sturgeon",
+                    "email": "me@philsturgeon.uk",
+                    "homepage": "http://philsturgeon.uk/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Handle the output of complex data structures ready for API output.",
+            "homepage": "http://fractal.thephpleague.com/",
+            "keywords": [
+                "api",
+                "json",
+                "league",
+                "rest"
+            ],
+            "time": "2020-01-24T23:17:29+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -4680,5 +4807,6 @@
     "platform": {
         "php": "^7.1.3"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }

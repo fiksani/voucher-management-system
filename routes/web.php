@@ -13,3 +13,4 @@ Route::resource('voucher-register','VoucherRegistrationController');
 Route::post('voucher-validators','VoucherValidatorController@checkCode')->name('checkCode');
 Route::resource('voucher-validation-results','VoucherValidationResultController');
 Route::resource('voucher-lists','VoucherListController');
+Route::get('/refresh-token', 'ApiTokenController@update');

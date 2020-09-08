@@ -49,6 +49,8 @@
                                     <th width="5%">Voucher Used</th>
                                     <th width="10%">Total Voucher</th>
                                     <th width="10%">Expired Date</th>
+                                    <th width="10%">Value</th>
+                                    <th width="10%">Type</th>
                                     <th width="5%">Status</th>
                                     <th width="10%">Action</th>
                                 </tr>
@@ -61,6 +63,8 @@
                                         <td>{{$voucher['period']}}</td>
                                         <td>{{$voucher['generate_voucher_qty']}}</td>
                                         <td>{{$voucher['total_voucher_qty']}}</td>
+                                        <td>{{$voucher['value']}}</td>
+                                        <td>{{$voucher['type']}}</td>
                                         <td>{{date("jS F, Y", strtotime($voucher->expired_date))}}</td>
                                         @if($voucher['active'] == 1)
                                             <td>Active</td>

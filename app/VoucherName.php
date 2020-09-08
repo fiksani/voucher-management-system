@@ -11,4 +11,11 @@ class VoucherName extends Model
         'created_at',
         'updated_at'
     ];
+
+    protected $casts = [
+    	'active' => 'boolean',
+    	'total_voucher_qty' => 'integer',
+    	'generate_voucher_qty' => 'integer',
+    	'value' => 'integer'
+    ];
 }

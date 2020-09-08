@@ -48,6 +48,8 @@ class VoucherNameController extends Controller
             'period' => 'required',
             'expired_date' => 'required',
             'total_voucher_qty' => 'required',
+            'value' => 'required|numeric',
+            'type' => 'required|in:percentage,virtual_currency'
         ]);
 
         $name = $request->get('name');

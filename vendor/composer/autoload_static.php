@@ -24,6 +24,7 @@ class ComposerStaticInit386546c77f6ca4865a84cc1516526bcb
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         '0d8253363903f0ac7b0978dcde4e28a0' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/helpers.php',
+        'b4e3f29b106af37a2bb239f73cdf68c7' => __DIR__ . '/../..' . '/app/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -92,6 +93,7 @@ class ComposerStaticInit386546c77f6ca4865a84cc1516526bcb
         ),
         'L' => 
         array (
+            'League\\Fractal\\' => 15,
             'League\\Flysystem\\' => 17,
             'Laravel\\Tinker\\' => 15,
         ),
@@ -117,6 +119,8 @@ class ComposerStaticInit386546c77f6ca4865a84cc1516526bcb
         ),
         'E' => 
         array (
+            'EllipseSynergie\\ApiResponse\\Tests\\' => 34,
+            'EllipseSynergie\\ApiResponse\\' => 28,
             'Egulias\\EmailValidator\\' => 23,
         ),
         'D' => 
@@ -276,6 +280,10 @@ class ComposerStaticInit386546c77f6ca4865a84cc1516526bcb
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
+        'League\\Fractal\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/league/fractal/src',
+        ),
         'League\\Flysystem\\' => 
         array (
             0 => __DIR__ . '/..' . '/league/flysystem/src',
@@ -315,6 +323,14 @@ class ComposerStaticInit386546c77f6ca4865a84cc1516526bcb
         'Faker\\' => 
         array (
             0 => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker',
+        ),
+        'EllipseSynergie\\ApiResponse\\Tests\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/ellipsesynergie/api-response/tests',
+        ),
+        'EllipseSynergie\\ApiResponse\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/ellipsesynergie/api-response/src',
         ),
         'Egulias\\EmailValidator\\' => 
         array (
@@ -390,6 +406,10 @@ class ComposerStaticInit386546c77f6ca4865a84cc1516526bcb
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Customer' => __DIR__ . '/../..' . '/app/Customer.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\ApiTokenController' => __DIR__ . '/../..' . '/app/Http/Controllers/ApiTokenController.php',
+        'App\\Http\\Controllers\\Api\\V1\\CustomerController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/V1/CustomerController.php',
+        'App\\Http\\Controllers\\Api\\V1\\VoucherController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/V1/VoucherController.php',
+        'App\\Http\\Controllers\\Api\\V1\\VoucherNameController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/V1/VoucherNameController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
@@ -421,6 +441,7 @@ class ComposerStaticInit386546c77f6ca4865a84cc1516526bcb
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\StatusList' => __DIR__ . '/../..' . '/app/StatusList.php',
+        'App\\Transformer\\VoucherNameTransformer' => __DIR__ . '/../..' . '/app/Transformers/VoucherNameTransformer.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'App\\Voucher' => __DIR__ . '/../..' . '/app/Voucher.php',
         'App\\VoucherName' => __DIR__ . '/../..' . '/app/VoucherName.php',
@@ -584,6 +605,14 @@ class ComposerStaticInit386546c77f6ca4865a84cc1516526bcb
         'Egulias\\EmailValidator\\Warning\\QuotedString' => __DIR__ . '/..' . '/egulias/email-validator/EmailValidator/Warning/QuotedString.php',
         'Egulias\\EmailValidator\\Warning\\TLD' => __DIR__ . '/..' . '/egulias/email-validator/EmailValidator/Warning/TLD.php',
         'Egulias\\EmailValidator\\Warning\\Warning' => __DIR__ . '/..' . '/egulias/email-validator/EmailValidator/Warning/Warning.php',
+        'EllipseSynergie\\ApiResponse\\AbstractResponse' => __DIR__ . '/..' . '/ellipsesynergie/api-response/src/AbstractResponse.php',
+        'EllipseSynergie\\ApiResponse\\Contracts\\Response' => __DIR__ . '/..' . '/ellipsesynergie/api-response/src/Contracts/Response.php',
+        'EllipseSynergie\\ApiResponse\\Laravel\\LumenServiceProvider' => __DIR__ . '/..' . '/ellipsesynergie/api-response/src/Laravel/LumenServiceProvider.php',
+        'EllipseSynergie\\ApiResponse\\Laravel\\Middleware\\ParseInclude' => __DIR__ . '/..' . '/ellipsesynergie/api-response/src/Laravel/Middleware/ParseInclude.php',
+        'EllipseSynergie\\ApiResponse\\Laravel\\Response' => __DIR__ . '/..' . '/ellipsesynergie/api-response/src/Laravel/Response.php',
+        'EllipseSynergie\\ApiResponse\\Laravel\\ResponseServiceProvider' => __DIR__ . '/..' . '/ellipsesynergie/api-response/src/Laravel/ResponseServiceProvider.php',
+        'EllipseSynergie\\ApiResponse\\Serializer\\Serializer' => __DIR__ . '/..' . '/ellipsesynergie/api-response/src/Serializer/Serializer.php',
+        'EllipseSynergie\\ApiResponse\\Testing\\Laravel\\AddTestingSupportForInclude' => __DIR__ . '/..' . '/ellipsesynergie/api-response/src/Testing/Laravel/AddTestingSupportForInclude.php',
         'Faker\\Calculator\\Iban' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/Calculator/Iban.php',
         'Faker\\Calculator\\Inn' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/Calculator/Inn.php',
         'Faker\\Calculator\\Luhn' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/Calculator/Luhn.php',
@@ -2038,6 +2067,31 @@ class ComposerStaticInit386546c77f6ca4865a84cc1516526bcb
         'League\\Flysystem\\Util\\ContentListingFormatter' => __DIR__ . '/..' . '/league/flysystem/src/Util/ContentListingFormatter.php',
         'League\\Flysystem\\Util\\MimeType' => __DIR__ . '/..' . '/league/flysystem/src/Util/MimeType.php',
         'League\\Flysystem\\Util\\StreamHasher' => __DIR__ . '/..' . '/league/flysystem/src/Util/StreamHasher.php',
+        'League\\Fractal\\Manager' => __DIR__ . '/..' . '/league/fractal/src/Manager.php',
+        'League\\Fractal\\Pagination\\Cursor' => __DIR__ . '/..' . '/league/fractal/src/Pagination/Cursor.php',
+        'League\\Fractal\\Pagination\\CursorInterface' => __DIR__ . '/..' . '/league/fractal/src/Pagination/CursorInterface.php',
+        'League\\Fractal\\Pagination\\DoctrinePaginatorAdapter' => __DIR__ . '/..' . '/league/fractal/src/Pagination/DoctrinePaginatorAdapter.php',
+        'League\\Fractal\\Pagination\\IlluminatePaginatorAdapter' => __DIR__ . '/..' . '/league/fractal/src/Pagination/IlluminatePaginatorAdapter.php',
+        'League\\Fractal\\Pagination\\PagerfantaPaginatorAdapter' => __DIR__ . '/..' . '/league/fractal/src/Pagination/PagerfantaPaginatorAdapter.php',
+        'League\\Fractal\\Pagination\\PaginatorInterface' => __DIR__ . '/..' . '/league/fractal/src/Pagination/PaginatorInterface.php',
+        'League\\Fractal\\Pagination\\PhalconFrameworkPaginatorAdapter' => __DIR__ . '/..' . '/league/fractal/src/Pagination/PhalconFrameworkPaginatorAdapter.php',
+        'League\\Fractal\\Pagination\\ZendFrameworkPaginatorAdapter' => __DIR__ . '/..' . '/league/fractal/src/Pagination/ZendFrameworkPaginatorAdapter.php',
+        'League\\Fractal\\ParamBag' => __DIR__ . '/..' . '/league/fractal/src/ParamBag.php',
+        'League\\Fractal\\Resource\\Collection' => __DIR__ . '/..' . '/league/fractal/src/Resource/Collection.php',
+        'League\\Fractal\\Resource\\Item' => __DIR__ . '/..' . '/league/fractal/src/Resource/Item.php',
+        'League\\Fractal\\Resource\\NullResource' => __DIR__ . '/..' . '/league/fractal/src/Resource/NullResource.php',
+        'League\\Fractal\\Resource\\Primitive' => __DIR__ . '/..' . '/league/fractal/src/Resource/Primitive.php',
+        'League\\Fractal\\Resource\\ResourceAbstract' => __DIR__ . '/..' . '/league/fractal/src/Resource/ResourceAbstract.php',
+        'League\\Fractal\\Resource\\ResourceInterface' => __DIR__ . '/..' . '/league/fractal/src/Resource/ResourceInterface.php',
+        'League\\Fractal\\Scope' => __DIR__ . '/..' . '/league/fractal/src/Scope.php',
+        'League\\Fractal\\ScopeFactory' => __DIR__ . '/..' . '/league/fractal/src/ScopeFactory.php',
+        'League\\Fractal\\ScopeFactoryInterface' => __DIR__ . '/..' . '/league/fractal/src/ScopeFactoryInterface.php',
+        'League\\Fractal\\Serializer\\ArraySerializer' => __DIR__ . '/..' . '/league/fractal/src/Serializer/ArraySerializer.php',
+        'League\\Fractal\\Serializer\\DataArraySerializer' => __DIR__ . '/..' . '/league/fractal/src/Serializer/DataArraySerializer.php',
+        'League\\Fractal\\Serializer\\JsonApiSerializer' => __DIR__ . '/..' . '/league/fractal/src/Serializer/JsonApiSerializer.php',
+        'League\\Fractal\\Serializer\\Serializer' => __DIR__ . '/..' . '/league/fractal/src/Serializer/Serializer.php',
+        'League\\Fractal\\Serializer\\SerializerAbstract' => __DIR__ . '/..' . '/league/fractal/src/Serializer/SerializerAbstract.php',
+        'League\\Fractal\\TransformerAbstract' => __DIR__ . '/..' . '/league/fractal/src/TransformerAbstract.php',
         'Mockery' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery.php',
         'Mockery\\Adapter\\Phpunit\\Legacy\\TestListenerForV5' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/Legacy/TestListenerForV5.php',
         'Mockery\\Adapter\\Phpunit\\Legacy\\TestListenerForV6' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/Legacy/TestListenerForV6.php',
