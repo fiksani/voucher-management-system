@@ -104,6 +104,7 @@
                     <div class="mobile-menu">
                         <nav id="dropdown">
                             <ul class="mobile-menu-nav">
+                                @if (Auth::check())
                                 <li><a  href="{{ url('voucher-lists') }}">Voucher</a>
                                 </li>
                                 <li><a href="{{ url('voucher-register') }}">
@@ -142,6 +143,7 @@
                                         </li>
                                     </ul>
                                 </li>
+                                @endif
                             </ul>
                         </nav>
                     </div>
@@ -156,33 +158,35 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <ul class="nav nav-tabs notika-menu-wrap menu-it-icon-pro">
-                        <li>
-                            <a href="{{ url('voucher-lists') }}">
-                                <i class="notika-icon notika-house"></i> Voucher
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ url('voucher-register') }}">
-                                <i class="notika-icon notika-edit"></i> Voucher Register
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ url('customers') }}">
-                                <i class="notika-icon notika-edit"></i> Customer
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ url('vouchernames') }}">
-                                <i class="notika-icon notika-edit"></i> Master Voucher
-                            </a>
-                        </li>
+                        @if (Auth::check())
+                            <li>
+                                <a href="{{ url('voucher-lists') }}">
+                                    <i class="notika-icon notika-house"></i> Voucher
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ url('voucher-register') }}">
+                                    <i class="notika-icon notika-edit"></i> Voucher Register
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ url('customers') }}">
+                                    <i class="notika-icon notika-edit"></i> Customer
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ url('vouchernames') }}">
+                                    <i class="notika-icon notika-edit"></i> Master Voucher
+                                </a>
+                            </li>
 
-
-                        <li>
-                            <a data-toggle="tab" href="#Page">
-                                <i class="notika-icon notika-support"></i>Hi, {{ Auth::user()->name }}
-                            </a>
-                        </li>
+                            <li>
+                                <a data-toggle="tab" href="#Page">
+                                    <i class="notika-icon notika-support"></i>Hi, {{ Auth::user()->name }}
+                                </a>
+                            </li>
+                        @endif
+                        
                     </ul>
                 </div>
             </div>
