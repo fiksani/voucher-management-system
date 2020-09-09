@@ -49,14 +49,16 @@ class VoucherNameController extends Controller
      *   "data": {
      *      "message": "New Campaign is created.",
      *      "campaign": {
-     *        "name": "Yellofit 20% Dicount",
-     *        "short_code": "YF-20sDdd2s",
-     *        "period": "1",
-     *        "expired_date": "2020-09-06",
-     *        "total_voucher_qty": 1,
-     *        "value": 20,
-     *        "type": "percentage",
-     *        "id": 1
+     *        "id": 1,
+              "name": "Yellowfit 20% Discount",
+              "short_code": "YFK20B11",
+              "period_day": 7,
+              "value": 20,
+              "type": "percentage",
+              "generate_voucher_qty": 1,
+              "total_voucher_qty": 100,
+              "expired_date": "2020-09-20",
+              "active": true
      *      }
      *    }
      *  }
@@ -108,15 +110,16 @@ class VoucherNameController extends Controller
      *   "data": {
      *      "message": "Campaign is already updated.",
      *      "campaign": {
-     *        "name": "Yellofit 20% Dicount",
-     *        "short_code": "YF-20sDdd2s",
-     *        "period": "1",
-     *        "expired_date": "2020-09-06",
-     *        "total_voucher_qty": 1,
-     *        "value": 20,
-     *        "type": "percentage",
-     *        "active": false,
-     *        "id": 52
+     *        "id": 1,
+              "name": "Yellowfit 20% Discount",
+              "short_code": "YFK20B11",
+              "period_day": 7,
+              "value": 20,
+              "type": "percentage",
+              "generate_voucher_qty": 1,
+              "total_voucher_qty": 100,
+              "expired_date": "2020-09-20",
+              "active": true
      *      }
      *    }
      *  }

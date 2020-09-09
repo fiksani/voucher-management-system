@@ -63,9 +63,9 @@
                                         <td>{{$voucher['period']}}</td>
                                         <td>{{$voucher['generate_voucher_qty']}}</td>
                                         <td>{{$voucher['total_voucher_qty']}}</td>
+                                        <td>{{date("jS F, Y", strtotime($voucher->expired_date))}}</td>
                                         <td>{{$voucher['value']}}</td>
                                         <td>{{$voucher['type']}}</td>
-                                        <td>{{date("jS F, Y", strtotime($voucher->expired_date))}}</td>
                                         @if($voucher['active'] == 1)
                                             <td>Active</td>
                                         @else
