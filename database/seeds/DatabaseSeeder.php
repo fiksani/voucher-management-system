@@ -11,8 +11,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\User::class, 1)->create();
-        $this->call(VoucherNameTableSeeder::class);
+        // factory(App\User::class, 1)->create();
+        // $this->call(VoucherNameTableSeeder::class);
         $this->call(StatusListTableSeeder::class);
     }
 }

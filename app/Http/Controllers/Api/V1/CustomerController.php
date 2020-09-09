@@ -11,6 +11,11 @@ use App\Transformers\VoucherTransformer;
 use App\Customer;
 use App\Voucher;
 
+/**
+ * @group  Customer
+ *
+ * APIs for show list of customer and customer vouchers
+ */
 class CustomerController extends Controller
 {
     public function __construct(Response $response)
@@ -18,12 +23,18 @@ class CustomerController extends Controller
         $this->response = $response;
     }
 
+    /**
+     * List Customers
+     */
     public function index()
     {
         $customers = Customer::paginate(10);
         return $this->response->withPaginator($customers, new CustomerTransformer);
     }
 
+    /**
+     * List Customer Vouchers
+     */
     public function vouchers($id)
     {
         $customer = Customer::find($id);

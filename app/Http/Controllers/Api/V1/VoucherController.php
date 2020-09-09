@@ -12,6 +12,11 @@ use App\Customer;
 use App\Voucher;
 use App\VoucherName;
 
+/**
+ * @group  Voucher
+ *
+ * APIs for register and redeem voucher
+ */
 class VoucherController extends Controller
 {
 
@@ -20,6 +25,24 @@ class VoucherController extends Controller
         $this->response = $response;
     }
 
+    /**
+     * Register voucher
+     *
+     * @urlParam id required The id of the campaign.
+     * @bodyParam name string required The name of the customer. Example: Suherman
+     * @bodyParam email string required The email of the customer. Example: suherman@site.domain
+     *
+     * @response {
+     *   "data": {
+     *     "code": "Y-2081600950810",
+     *     "expired_date": "2020-09-24T12:33:30.734968Z"
+     *   }
+     * }
+     * 
+     * @response 404 {
+     *  "message": "Voucher Not Found"
+     * }
+     */
     public function register(Request $request, $id)
     {
         $voucherName= VoucherName::where('id', $id)->first();
@@ -48,10 +71,11 @@ class VoucherController extends Controller
         }
 
         // - selanjutnya cek di daftar voucher, jika customer masih mempunyai voucher yang masih berlaku untuk jenis voucher yang sama yang direquest,customer tidak boleh generate lagi.
-        if (Voucher::where('customer_id',$customer_id )
+        $alreadyActive = Voucher::where('customer_id',$customer_id )
                 ->where('expired_date','>',now()) //date belum expired
                 ->where('status_id',1) //statusnya masih create
-                ->first()){
+                ->exists();
+        if ($alreadyActive){
             return $this->response->errorForbidden("You still have active voucher");
         }else{
             // - Jika customer tidak mempunyaivoucher yang sama dan berlaku maka voucher dibuatkan
@@ -107,6 +131,27 @@ class VoucherController extends Controller
         return $this->response->errorInternalError("Something went wrong");
     }
 
+    /**
+     * Redeem voucher
+     *
+     * @bodyParam code string required The code of the customer voucher. Example: Y-2081600950810
+     *
+     * @response {
+     *    "data": {
+     *      "message": "You've successfully redeemed your code",
+     *      "voucher": {
+     *        "code": "Y-2081600950810",
+     *        "voucher": "YELLOWFIT-20",
+     *        "type": "percentage",
+     *        "value": 20
+     *      }
+     *    }
+     * }
+     * 
+     * @response 404 {
+     *  "message": "Voucher Not Found"
+     * }
+     */
     public function redeem(Request $request)
     {
         $code=($request->code);

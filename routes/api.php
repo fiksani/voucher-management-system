@@ -17,7 +17,7 @@ Route::middleware('auth:api')->prefix('v1')->group( function () {
 	Route::prefix('campaign')->group( function () {
 		Route::get('/', 'Api\V1\VoucherNameController@index')->name('campaign.index');
 		Route::post('/', 'Api\V1\VoucherNameController@store')->name('campaign.store');
-		Route::patch('{id}/', 'Api\V1\VoucherNameController@update')->name('campaign.update');
+		Route::put('{id}/edit', 'Api\V1\VoucherNameController@update')->name('campaign.update');
 		Route::post('{id}/vouchers', 'Api\V1\VoucherController@register')->name('voucher.register');
 	});
 

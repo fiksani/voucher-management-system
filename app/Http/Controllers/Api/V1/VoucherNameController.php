@@ -10,6 +10,11 @@ use App\VoucherName;
 use App\Transformers\VoucherNameTransformer;
 use Validator;
 
+/**
+ * @group  Campaign
+ *
+ * APIs for managing campaign
+ */
 class VoucherNameController extends Controller
 {
 
@@ -18,12 +23,44 @@ class VoucherNameController extends Controller
         $this->response = $response;
     }
 
+    /**
+     * List of campaign
+     */
     public function index()
     {
         $voucherNames = VoucherName::paginate(10);
         return $this->response->withPaginator($voucherNames, new VoucherNameTransformer);
     }
 
+
+
+    /**
+     * Create a campaign
+     *
+     * @bodyParam name string required The name of the campaign. Example: Yellofit 20% Discount
+     * @bodyParam short_code string required The code of the campaign. Example: YFK20P
+     * @bodyParam period number required The period of the campaign in days. Example: 1
+     * @bodyParam expired_date date required The expired date of the campaign. Example: 2020-09-06
+     * @bodyParam total_voucher_qty number required The maximum voucher quantity. Example: 100
+     * @bodyParam value number required The value of the campaign based on type. Example: 20
+     * @bodyParam type string required The type of the campaign. Should be: percentage,virtual_currency. Example: percentage    
+     *
+     * @response {
+     *   "data": {
+     *      "message": "New Campaign is created.",
+     *      "campaign": {
+     *        "name": "Yellofit 20% Dicount",
+     *        "short_code": "YF-20sDdd2s",
+     *        "period": "1",
+     *        "expired_date": "2020-09-06",
+     *        "total_voucher_qty": 1,
+     *        "value": 20,
+     *        "type": "percentage",
+     *        "id": 1
+     *      }
+     *    }
+     *  }
+     */
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -47,11 +84,47 @@ class VoucherNameController extends Controller
         return $this->response->withArray([
             'data' => [
                 'message' => 'New Campaign is created.',
-                'campaign' => $voucherName
+                'campaign' => collect($voucherName->toArray())
+                    ->only(['id', 'name', 'short_code', 'period', 'expired_date', 'total_voucher_qty', 'value', 'type', 'active'])
+                    ->all()
             ]
         ]);
     }
 
+    /**
+     * Update campaign
+     *
+     * @urlParam id required The id of the campaign. Example: 52
+     * @bodyParam name string required The name of the campaign. Example: Yellofit 20% Discount
+     * @bodyParam short_code string required The code of the campaign. Example: YFK20P
+     * @bodyParam period number required The period of the campaign in days. Example: 1
+     * @bodyParam expired_date date required The expired date of the campaign. Example: 2020-09-06
+     * @bodyParam total_voucher_qty number required The maximum voucher quantity. Example: 100
+     * @bodyParam active boolean required The status of the campaign. Example: false
+     * @bodyParam value number required The value of the campaign based on type. Example: 20
+     * @bodyParam type string required The type of the campaign. Should be: percentage,virtual_currency. Example: percentage    
+     *
+     * @response {
+     *   "data": {
+     *      "message": "Campaign is already updated.",
+     *      "campaign": {
+     *        "name": "Yellofit 20% Dicount",
+     *        "short_code": "YF-20sDdd2s",
+     *        "period": "1",
+     *        "expired_date": "2020-09-06",
+     *        "total_voucher_qty": 1,
+     *        "value": 20,
+     *        "type": "percentage",
+     *        "active": false,
+     *        "id": 52
+     *      }
+     *    }
+     *  }
+     * 
+     * @response 404 {
+     *  "message": "Campaign Not Found"
+     * }
+     */
     public function update(Request $request, $id)
     {
         $voucherName = VoucherName::find($id);
@@ -77,11 +150,14 @@ class VoucherNameController extends Controller
         }
 
         $voucherName = $voucherName->fill($request->all());
+        $voucherName->save();
 
         return $this->response->withArray([
             'data' => [
                 'message' => 'Campaign is already updated.',
-                'campaign' => $voucherName
+                'campaign' => collect($voucherName->toArray())
+                    ->only(['id', 'name', 'short_code', 'period', 'expired_date', 'total_voucher_qty', 'value', 'type', 'active'])
+                    ->all()
             ]
         ]);
     }

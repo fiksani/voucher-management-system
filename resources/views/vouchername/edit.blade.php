@@ -105,6 +105,38 @@
                                 <div class="col-lg-6 col-md-4 col-sm-4 col-xs-12">
                                     <div class="form-group ic-cmp-int">
                                         <div class="form-ic-cmp">
+                                            <i class="notika-icon notika-support"></i>
+                                        </div>
+                                        <div class="nk-int-st">
+                                            <input type="number" class="form-control" placeholder="Voucher Value" name="value" required value="{{$voucherName->value}}" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 col-md-4 col-sm-4 col-xs-12">
+                                    <div class="form-group ic-cmp-int">
+                                        <div class="form-ic-cmp">
+                                            <i class="notika-icon notika-next"></i>
+                                        </div>
+                                        <div class="nk-int-st">
+                                            <select required class="selectpicker" name="status">
+                                                @if($voucherName->type==1)
+                                                    <option value="1" selected>Active</option>
+                                                    <option value="0">Non_Active</option>
+                                                @else
+                                                    <option value="1">Active</option>
+                                                    <option value="0" selected>Non_Active</option>
+                                                @endif
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 col-md-4 col-sm-4 col-xs-12">
+                                    <div class="form-group ic-cmp-int">
+                                        <div class="form-ic-cmp">
                                             <i class="notika-icon notika-next"></i>
                                         </div>
                                         <div class="nk-int-st">
