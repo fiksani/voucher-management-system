@@ -1,7 +1,11 @@
 <?php
 
 
-Auth::routes();
+Auth::routes([
+	'register' => false,
+	'reset' => false,
+	'verify' => false,
+]);
 
 Route::get('/', 'LandingPageController@index')->name('welcome');
 Route::get('/home', 'HomeController@index')->name('home');
