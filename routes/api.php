@@ -27,4 +27,5 @@ Route::middleware('auth:api')->prefix('v1')->group( function () {
 	});
 
 	Route::post('/redeem', 'Api\V1\VoucherController@redeem')->name('voucher.redeem');
+	Route::post('/check', 'Api\V1\VoucherController@check')->name('voucher.check');
 });

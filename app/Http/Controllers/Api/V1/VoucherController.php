@@ -206,4 +206,73 @@ class VoucherController extends Controller
 
         return $this->response->errorUnprocessable($message);
     }
+    
+    /**
+     * Check voucher
+     *
+     * @bodyParam code string required The code of the customer voucher. Example: Y-2081600950810
+     *
+     * @response {
+     *    "data": {
+     *      "voucher": {
+     *        "code": "Y-2081600950810",
+     *        "voucher": "YELLOWFIT-20",
+     *        "type": "percentage",
+     *        "value": 20,
+     *		  "status": "used"
+     *      }
+     *    }
+     * }
+     * 
+     * @response 404 {
+     *  "message": "Voucher Not Found"
+     * }
+     */
+    public function check(Request $request)
+    {
+        $code=($request->code);
+        $voucher=Voucher::where('code',$code)->first();
+        if(!$voucher){
+            return $this->response->errorNotFound('Voucher Not Found');
+        }
+
+        if($voucher->expired_date > now()->addDays(-1)){
+            switch ($voucher->status_id) {
+                case '1':
+                    return $this->response->withArray([
+                        'data' => [
+                            'voucher' => [
+                                'code' => $voucher->code,
+                                'voucher' => $voucher->VoucherName->name,
+                                'type' => $voucher->VoucherName->type,
+                                'value' => $voucher->VoucherName->value,
+                                'status' => $voucher->status->status,
+                            ]
+                        ]
+                    ]);
+                    break;
+                case '2':
+                    $message = $code." expired at ".date("jS F, Y", strtotime($voucher->expired_date));
+                    break;
+                case '3':
+                    $message = $code." already used";
+                    break;
+            }
+
+        } else {
+            switch ($voucher->status_id) {
+                case '1':
+                    $message = $code." expired at ".date("jS F, Y", strtotime($voucher->expired_date));
+                    break;
+                case '2':
+                    $message = $code." expired at ".date("jS F, Y", strtotime($voucher->expired_date));
+                    break;
+                case '3':
+                    $message = $code." already used";
+                    break;
+            }
+        }
+
+        return $this->response->errorUnprocessable($message);
+    }
 }

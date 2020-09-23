@@ -29,14 +29,14 @@ APIs for managing campaign
 > Example request:
 
 ```bash
-curl -X GET -G "http://voucher-management-system.127.0.0.1.sslip.io/api/v1/campaign" \
+curl -X GET -G "http://103.14.21.56:9580/api/v1/campaign" \
     -H "Authorization: Bearer {token}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json"
 ```
 
 ```javascript
-const url = new URL("http://voucher-management-system.127.0.0.1.sslip.io/api/v1/campaign");
+const url = new URL("http://103.14.21.56:9580/api/v1/campaign");
 
 let headers = {
     "Authorization": "Bearer {token}",
@@ -53,118 +53,11 @@ fetch(url, {
 ```
 
 
-> Example response (200):
+> Example response (401):
 
 ```json
 {
-    "data": [
-        {
-            "id": 1,
-            "name": "YELLOWFIT-20",
-            "short_code": "Y-20",
-            "period_day": 10,
-            "value": 20,
-            "type": "percentage",
-            "generate_voucher_qty": 7,
-            "total_voucher_qty": 100,
-            "expired_date": "2020-09-24",
-            "active": true
-        },
-        {
-            "id": 2,
-            "name": "Voucher 100% FREE survey charge for moving service in Area Surabaya",
-            "short_code": "JPSBY",
-            "period_day": 30,
-            "value": 100,
-            "type": "percentage",
-            "generate_voucher_qty": null,
-            "total_voucher_qty": 100,
-            "expired_date": "2020-10-08",
-            "active": true
-        },
-        {
-            "id": 3,
-            "name": "Voucher 100% FREE survey charge for moving service in Area Jakarta",
-            "short_code": "JPJKT",
-            "period_day": 30,
-            "value": 100,
-            "type": "percentage",
-            "generate_voucher_qty": 1,
-            "total_voucher_qty": 100,
-            "expired_date": "2020-10-08",
-            "active": true
-        },
-        {
-            "id": 10,
-            "name": "Yellofit 20% Dicount",
-            "short_code": "YF-20D2",
-            "period_day": 1,
-            "value": 20,
-            "type": "percentage",
-            "generate_voucher_qty": null,
-            "total_voucher_qty": 1,
-            "expired_date": "2020-09-06",
-            "active": true
-        },
-        {
-            "id": 11,
-            "name": "Yellofit 20% Dicount",
-            "short_code": "YF-20D2s",
-            "period_day": 1,
-            "value": 20,
-            "type": "percentage",
-            "generate_voucher_qty": null,
-            "total_voucher_qty": 1,
-            "expired_date": "2020-09-06",
-            "active": true
-        },
-        {
-            "id": 12,
-            "name": "Yellofit 20% Dicount",
-            "short_code": "YF-20Dd2s",
-            "period_day": 1,
-            "value": 20,
-            "type": "percentage",
-            "generate_voucher_qty": null,
-            "total_voucher_qty": 1,
-            "expired_date": "2020-09-06",
-            "active": true
-        },
-        {
-            "id": 51,
-            "name": "Yellofit 20% Dicount",
-            "short_code": "YF-20Ddd2s",
-            "period_day": 1,
-            "value": 20,
-            "type": "percentage",
-            "generate_voucher_qty": null,
-            "total_voucher_qty": 1,
-            "expired_date": "2020-09-06",
-            "active": true
-        },
-        {
-            "id": 52,
-            "name": "Yellofit 20% Dicount",
-            "short_code": "YF-20sDdd2s",
-            "period_day": 1,
-            "value": 20,
-            "type": "percentage",
-            "generate_voucher_qty": null,
-            "total_voucher_qty": 1,
-            "expired_date": "2020-09-06",
-            "active": true
-        }
-    ],
-    "meta": {
-        "pagination": {
-            "total": 8,
-            "count": 8,
-            "per_page": 10,
-            "current_page": 1,
-            "total_pages": 1,
-            "links": {}
-        }
-    }
+    "message": "Unauthenticated."
 }
 ```
 
@@ -180,7 +73,7 @@ fetch(url, {
 > Example request:
 
 ```bash
-curl -X POST "http://voucher-management-system.127.0.0.1.sslip.io/api/v1/campaign" \
+curl -X POST "http://103.14.21.56:9580/api/v1/campaign" \
     -H "Authorization: Bearer {token}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
@@ -189,7 +82,7 @@ curl -X POST "http://voucher-management-system.127.0.0.1.sslip.io/api/v1/campaig
 ```
 
 ```javascript
-const url = new URL("http://voucher-management-system.127.0.0.1.sslip.io/api/v1/campaign");
+const url = new URL("http://103.14.21.56:9580/api/v1/campaign");
 
 let headers = {
     "Authorization": "Bearer {token}",
@@ -224,49 +117,25 @@ fetch(url, {
     "data": {
         "message": "New Campaign is created.",
         "campaign": {
-            "name": "Yellofit 20% Dicount",
-            "short_code": "YF-20sDdd2s",
-            "period": "1",
-            "expired_date": "2020-09-06",
-            "total_voucher_qty": 1,
+            "id": 1,
+            "name": "Yellowfit 20% Discount",
+            "short_code": "YFK20B11",
+            "period_day": 7,
             "value": 20,
             "type": "percentage",
-            "id": 52
+            "generate_voucher_qty": 1,
+            "total_voucher_qty": 100,
+            "expired_date": "2020-09-20",
+            "active": true
         }
     }
 }
 ```
-> Example response (400):
+> Example response (401):
 
 ```json
 {
-    "error": {
-        "code": "GEN-WRONG-ARGS",
-        "http_code": 400,
-        "message": {
-            "name": [
-                "The name field is required."
-            ],
-            "short_code": [
-                "The short code field is required."
-            ],
-            "period": [
-                "The period field is required."
-            ],
-            "expired_date": [
-                "The expired date field is required."
-            ],
-            "total_voucher_qty": [
-                "The total voucher qty field is required."
-            ],
-            "value": [
-                "The value field is required."
-            ],
-            "type": [
-                "The type field is required."
-            ]
-        }
-    }
+    "message": "Unauthenticated."
 }
 ```
 
@@ -293,7 +162,7 @@ Parameter | Type | Status | Description
 > Example request:
 
 ```bash
-curl -X PUT "http://voucher-management-system.127.0.0.1.sslip.io/api/v1/campaign/1/edit" \
+curl -X PUT "http://103.14.21.56:9580/api/v1/campaign/1/edit" \
     -H "Authorization: Bearer {token}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
@@ -302,7 +171,7 @@ curl -X PUT "http://voucher-management-system.127.0.0.1.sslip.io/api/v1/campaign
 ```
 
 ```javascript
-const url = new URL("http://voucher-management-system.127.0.0.1.sslip.io/api/v1/campaign/1/edit");
+const url = new URL("http://103.14.21.56:9580/api/v1/campaign/1/edit");
 
 let headers = {
     "Authorization": "Bearer {token}",
@@ -338,15 +207,16 @@ fetch(url, {
     "data": {
         "message": "Campaign is already updated.",
         "campaign": {
-            "name": "Yellofit 20% Dicount",
-            "short_code": "YF-20sDdd2s",
-            "period": "1",
-            "expired_date": "2020-09-06",
-            "total_voucher_qty": 1,
+            "id": 1,
+            "name": "Yellowfit 20% Discount",
+            "short_code": "YFK20B11",
+            "period_day": 7,
             "value": 20,
             "type": "percentage",
-            "active": false,
-            "id": 52
+            "generate_voucher_qty": 1,
+            "total_voucher_qty": 100,
+            "expired_date": "2020-09-20",
+            "active": true
         }
     }
 }
@@ -387,14 +257,14 @@ APIs for show list of customer and customer vouchers
 > Example request:
 
 ```bash
-curl -X GET -G "http://voucher-management-system.127.0.0.1.sslip.io/api/v1/customer" \
+curl -X GET -G "http://103.14.21.56:9580/api/v1/customer" \
     -H "Authorization: Bearer {token}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json"
 ```
 
 ```javascript
-const url = new URL("http://voucher-management-system.127.0.0.1.sslip.io/api/v1/customer");
+const url = new URL("http://103.14.21.56:9580/api/v1/customer");
 
 let headers = {
     "Authorization": "Bearer {token}",
@@ -411,62 +281,11 @@ fetch(url, {
 ```
 
 
-> Example response (400):
+> Example response (401):
 
 ```json
 {
-    "data": [
-        {
-            "id": 1,
-            "name": "Demo User",
-            "email": "demo@site.domain"
-        },
-        {
-            "id": 2,
-            "name": "Dian",
-            "email": "dian@site.domain"
-        },
-        {
-            "id": 3,
-            "name": "Dinda Kanya",
-            "email": "dinda@site.domain"
-        },
-        {
-            "id": 4,
-            "name": "Dinda Kanya",
-            "email": "dindas@site.domain"
-        },
-        {
-            "id": 5,
-            "name": "Dinda Kanya",
-            "email": "dindas2@site.domain"
-        },
-        {
-            "id": 6,
-            "name": "Dinda Kanya",
-            "email": "dindasd2@site.domain"
-        },
-        {
-            "id": 7,
-            "name": "Dinda Kanya",
-            "email": "dindasd2d@site.domain"
-        },
-        {
-            "id": 8,
-            "name": "Dinda Kanya",
-            "email": "dindasd2dd@site.domain"
-        }
-    ],
-    "meta": {
-        "pagination": {
-            "total": 8,
-            "count": 8,
-            "per_page": 10,
-            "current_page": 1,
-            "total_pages": 1,
-            "links": {}
-        }
-    }
+    "message": "Unauthenticated."
 }
 ```
 
@@ -482,14 +301,14 @@ fetch(url, {
 > Example request:
 
 ```bash
-curl -X GET -G "http://voucher-management-system.127.0.0.1.sslip.io/api/v1/customer/1/vouchers" \
+curl -X GET -G "http://103.14.21.56:9580/api/v1/customer/1/vouchers" \
     -H "Authorization: Bearer {token}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json"
 ```
 
 ```javascript
-const url = new URL("http://voucher-management-system.127.0.0.1.sslip.io/api/v1/customer/1/vouchers");
+const url = new URL("http://103.14.21.56:9580/api/v1/customer/1/vouchers");
 
 let headers = {
     "Authorization": "Bearer {token}",
@@ -506,21 +325,11 @@ fetch(url, {
 ```
 
 
-> Example response (400):
+> Example response (401):
 
 ```json
 {
-    "data": [],
-    "meta": {
-        "pagination": {
-            "total": 0,
-            "count": 0,
-            "per_page": 10,
-            "current_page": 1,
-            "total_pages": 1,
-            "links": {}
-        }
-    }
+    "message": "Unauthenticated."
 }
 ```
 
@@ -540,7 +349,7 @@ APIs for register and redeem voucher
 > Example request:
 
 ```bash
-curl -X POST "http://voucher-management-system.127.0.0.1.sslip.io/api/v1/campaign/1/vouchers" \
+curl -X POST "http://103.14.21.56:9580/api/v1/campaign/1/vouchers" \
     -H "Authorization: Bearer {token}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
@@ -549,7 +358,7 @@ curl -X POST "http://voucher-management-system.127.0.0.1.sslip.io/api/v1/campaig
 ```
 
 ```javascript
-const url = new URL("http://voucher-management-system.127.0.0.1.sslip.io/api/v1/campaign/1/vouchers");
+const url = new URL("http://103.14.21.56:9580/api/v1/campaign/1/vouchers");
 
 let headers = {
     "Authorization": "Bearer {token}",
@@ -589,19 +398,11 @@ fetch(url, {
     "message": "Voucher Not Found"
 }
 ```
-> Example response (422):
+> Example response (401):
 
 ```json
 {
-    "message": "The given data was invalid.",
-    "errors": {
-        "name": [
-            "The name field is required."
-        ],
-        "email": [
-            "The email field is required."
-        ]
-    }
+    "message": "Unauthenticated."
 }
 ```
 
@@ -623,7 +424,7 @@ Parameter | Type | Status | Description
 > Example request:
 
 ```bash
-curl -X POST "http://voucher-management-system.127.0.0.1.sslip.io/api/v1/redeem" \
+curl -X POST "http://103.14.21.56:9580/api/v1/redeem" \
     -H "Authorization: Bearer {token}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
@@ -632,7 +433,7 @@ curl -X POST "http://voucher-management-system.127.0.0.1.sslip.io/api/v1/redeem"
 ```
 
 ```javascript
-const url = new URL("http://voucher-management-system.127.0.0.1.sslip.io/api/v1/redeem");
+const url = new URL("http://103.14.21.56:9580/api/v1/redeem");
 
 let headers = {
     "Authorization": "Bearer {token}",
@@ -673,11 +474,14 @@ fetch(url, {
 
 ```json
 {
-    "error": {
-        "code": "GEN-NOT-FOUND",
-        "http_code": 404,
-        "message": "Voucher Not Found"
-    }
+    "message": "Voucher Not Found"
+}
+```
+> Example response (401):
+
+```json
+{
+    "message": "Unauthenticated."
 }
 ```
 
@@ -691,5 +495,83 @@ Parameter | Type | Status | Description
     code | string |  required  | The code of the customer voucher.
 
 <!-- END_0dd68512e9f5faf7846135a7f351c3d5 -->
+
+<!-- START_80110ad69e4c78451154070683f64991 -->
+## Check voucher
+
+> Example request:
+
+```bash
+curl -X POST "http://103.14.21.56:9580/api/v1/check" \
+    -H "Authorization: Bearer {token}" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -d '{"code":"Y-2081600950810"}'
+
+```
+
+```javascript
+const url = new URL("http://103.14.21.56:9580/api/v1/check");
+
+let headers = {
+    "Authorization": "Bearer {token}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+let body = {
+    "code": "Y-2081600950810"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "data": {
+        "voucher": {
+            "code": "Y-2081600950810",
+            "voucher": "YELLOWFIT-20",
+            "type": "percentage",
+            "value": 20,
+            "status": "used"
+        }
+    }
+}
+```
+> Example response (404):
+
+```json
+{
+    "message": "Voucher Not Found"
+}
+```
+> Example response (401):
+
+```json
+{
+    "message": "Unauthenticated."
+}
+```
+
+### HTTP Request
+`POST api/v1/check`
+
+#### Body Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    code | string |  required  | The code of the customer voucher.
+
+<!-- END_80110ad69e4c78451154070683f64991 -->
 
 
